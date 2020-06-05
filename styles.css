@@ -1,29 +1,23 @@
 
-:root {
-    --size-value: 300px;
-}
-
-.imageWrapper {
-    height: var(--size-value);/* height: 300px */
-    width: var(--size-value);
-}
-
 body {
     font-family: sans-serif;
 }
 
-#advertising {
-    border: 10px solid red;
-    font-size: 200px;
-    text-transform: uppercase;
+
+ol {
+    counter-reset: section;
+    /* Creates a new instance of the
+                                section counter with each ol
+                                element */
+    list-style-type: none;
 }
 
-#news_articles {
-    counter-reset: articles_counter;
-}
-
-.article-item > h3::before {
-    counter-increment: articles_counter;
-
-    content: "Counter = " counter(articles_counter) ". ";
+li::before {
+    counter-increment: section;
+    /* Increments only this instance
+                                    of the section counter */
+    content: counters(section, ".") " ";
+    /* Combines the values of all instances
+                                             of the section counter, separated
+                                             by a period */
 }
