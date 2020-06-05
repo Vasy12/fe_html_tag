@@ -1,7 +1,29 @@
-#img {
-    display: block;
-    margin: 0 auto;
-    width: 260px;
-    height: 232px;
+
+:root {
+    --size-value: 300px;
 }
 
+.imageWrapper {
+    height: var(--size-value);/* height: 300px */
+    width: var(--size-value);
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#advertising {
+    border: 10px solid red;
+    font-size: 200px;
+    text-transform: uppercase;
+}
+
+#news_articles {
+    counter-reset: articles_counter;
+}
+
+.article-item > h3::before {
+    counter-increment: articles_counter;
+
+    content: "Counter = " counter(articles_counter) ". ";
+}
